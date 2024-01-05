@@ -119,6 +119,15 @@ function addAnimation() {
     });
 }
 
+const loaderContent = document.querySelector('.load')
+const pageContent = document.querySelector('.page')
+
+window.addEventListener('load', () => {
+  loaderContent.classList.add('hidden')
+  pageContent.classList.add('visible')
+})
+
+
 const words = ["Gustavo", "Gustavo Martins", ]
 
 gsap.to("#cursor", {
