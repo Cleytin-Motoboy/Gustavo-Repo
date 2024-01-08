@@ -10,6 +10,10 @@
     <title>GugasPort</title>
 </head>
 <body>
+    <!-- BACGROUND -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <!-- LOADER -->
     <div class="load">
         <div class="loader">
           <div class="ring back clockwise"></div>
@@ -17,7 +21,8 @@
           <div class="ring front clockwise"></div>
         </div>
     </div>
-    <canvas></canvas>
+
+
     <section class="page">
     <nav class="menu">
         <ul class="logo">
@@ -33,20 +38,35 @@
     </nav>
     <main>
         <div class="intro">
-            <svg class="planeta" viewBox="0 0 160 160" width="160" height="160" >
-                <circle cx="80" cy="80" r="50"/>
-                <g transform=" matrix(0.866, -0.5, 0.25, 0.5, 80, 80)">
-                  <path d="M 0,70 A 65,70 0 0,0 65,0 5,5 0 0,1 75,0 75,70 0 0,1 0,70Z" fill="#f6ebd5">
-                    <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="2s" repeatCount="indefinite"/>
-                  </path>
-                </g>
-                <path d="M 50,0 A 50,50 0 0,0 -50,0Z" transform="matrix(0.866, -0.5, 0.5, 0.866, 80, 80)"/>
-            </svg>
+            <div id="space">
+                <div class="space_field_wrapper">
+                    <div class="space_field mother">
+                        <div class="planet"></div>
+                    </div>
+                </div>
+                <div class="space_field_wrapper">
+                    <div class="space_field satellite">
+                        <div class="planet"></div>
+                    </div>
+                </div>
+                <div class="space_field_wrapper">
+                    <div class="space_field satellite">
+                        <div class="planet"></div>
+                    </div>
+                </div>
+                <div class="space_field_wrapper">
+                    <div class="space_field satellite">
+                        <div class="planet"></div>
+                    </div>
+                </div>
+            </div>
             <h1>Hello, my name is <b id="animated-text"></b><b id="cursor">|</b>
             <br>I'm a full stack developer from Brazil.</h1>
         </div>
     </main>
-    <main></main>
+    <main>
+        
+    </main>
     <!-- Slider Text -->
     <section class="section section--runline">
         <div data-animate="runline" class="runtext__content">
@@ -65,7 +85,7 @@
         </div>
     </section>        
     </section>
-    
+
 
     <!-- END HTML -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
@@ -73,5 +93,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/TextPlugin.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- <script src="js/star.js"></script> -->
 </body>
 </html>
