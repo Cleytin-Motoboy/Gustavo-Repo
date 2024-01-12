@@ -3,11 +3,35 @@
 	font-family: 'Chillax', sans-serif;
 	--clr-text-details:#c04a06;
 	--clr-details:#f6ebd5;
-	--clr-shadow-details:#f6ebd536;
+	--clr-bg:#35155D;
 	--clr-text-black:#000000;
 	--clr-text-white:#ffffff;
   --white-5: rgba(255, 255, 255, 0.09);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--clr-text-details) var(--clr-details);
+    scrollbar-width:thin;
+    scroll-behavior: smooth;
 }
+
+::selection{
+  background-color: var(--clr-text-details);
+  color: var(--clr-details);
+}
+
+::-webkit-scrollbar{
+  width: .4rem;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: var(--clr-text-details);
+  border-radius: 1rem;
+}
+
 
 html.lenis {
 	height: auto;
@@ -77,10 +101,48 @@ body{
 	animation:move-twink-back 200s linear infinite;
 }
 
+#button {
+  display: inline-block;
+  background-color: var(--clr-text-details);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4rem;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#button::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' style='fill: rgba(255, 255, 255, 1);transform: ;msFilter:;'%3E%3Cpath d='m6.293 11.293 1.414 1.414L12 8.414l4.293 4.293 1.414-1.414L12 5.586z'%3E%3C/path%3E%3Cpath d='m6.293 16.293 1.414 1.414L12 13.414l4.293 4.293 1.414-1.414L12 10.586z'%3E%3C/path%3E%3C/svg%3E");
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 55px;
+  color: var(--clr-details);
+}
+#button:hover {
+  cursor: pointer;
+  background-color: var(--white-5);
+}
+#button:active {
+  background-color: var(--clr-text-black);
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
 .page{
 	opacity: 0;
-	transform: translate3d(0, -2rem, 0);
-	transition: all .6s ease-in-out;
+	transform: translate3d(0, -4rem, 0);
+	transition: all .5s ease-in-out;
 }
 
 .page.visible{
@@ -394,7 +456,7 @@ video {
 
 .entry figure {
   margin: 0;
-  padding: 8rem;
+  padding: 4rem;
   background-color: var(--white-5);
   display: flex;
   justify-content: center;

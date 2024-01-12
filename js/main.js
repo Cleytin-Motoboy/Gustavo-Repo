@@ -1,7 +1,7 @@
 const lenis = new Lenis()
 lenis.on('scroll', ScrollTrigger.update)
 gsap.ticker.add((time)=>{
-  lenis.raf(time * 1500)
+  lenis.raf(time * 1200)
 })
 gsap.ticker.lagSmoothing(0)
 
@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
 })
 
 
-const words = ["Gustavo", "Gustavo Martins", ]
+const words = ["Gustavo", "Gustavo Martins", "Guga" ]
 
 gsap.to("#cursor", {
   opacity:0,
@@ -58,7 +58,7 @@ entries.forEach(entry => {
   let tl = gsap.timeline({
     scrollTrigger:{
       trigger:entry,
-      start:'top bottom',
+      start:'top 90%',
       end:'bottom bottom',
       scrub:true
     }
@@ -86,4 +86,19 @@ entries.forEach(entry => {
       filter: 'blur(0px)'
     },'<')
 })
+
+var btn = $('#button');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 200) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
 
