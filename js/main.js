@@ -4,23 +4,24 @@ gsap.ticker.add((time)=>{
   lenis.raf(time * 1500)
 })
 gsap.ticker.lagSmoothing(0)
+
 const scrollers = document.querySelectorAll(".section--runline");
 
 if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    addAnimation();
+  addAnimation();
 }
 
 function addAnimation() {
-    scrollers.forEach((scroller) => {
-      scroller.setAttribute("data-animated", true);
-      const scrollerInner = scroller.querySelector(".runtext__block");
-      const scrollerContent = Array.from(scrollerInner.children);
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        duplicatedItem.setAttribute("aria-hidden", true);
-        scrollerInner.appendChild(duplicatedItem);
-      });
+  scrollers.forEach((scroller) => {
+    scroller.setAttribute("data-animated", true);
+    const scrollerInner = scroller.querySelector(".runtext__block");
+    const scrollerContent = Array.from(scrollerInner.children);
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
     });
+  });
 }
 
 const loaderContent = document.querySelector('.load')
@@ -48,3 +49,41 @@ words.forEach((word) =>{
   tlText.to("#animated-text", {duration:3, text: word})
   tl.add(tlText)
 })
+
+const entries = document.querySelectorAll('.entry')
+entries.forEach(entry => {
+  let entryMeta = entry.querySelector('.entry__meta')
+  let entryMedia = entry.querySelector('.entry__media')
+
+  let tl = gsap.timeline({
+    scrollTrigger:{
+      trigger:entry,
+      start:'top bottom',
+      end:'bottom bottom',
+      scrub:true
+    }
+  })
+
+  tl.fromTo(entryMeta, 
+    {
+      xPercent: -100, 
+      opacity:0
+    },
+    {
+      xPercent: 0,
+      opacity:1
+    })
+
+  tl.fromTo(entryMedia, 
+    {
+      xPercent: 100,
+      opacity:0,
+      filter: 'blur(10px)'
+    },
+    {
+      xPercent: 0,
+      opacity:1,
+      filter: 'blur(0px)'
+    },'<')
+})
+
